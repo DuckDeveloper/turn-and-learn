@@ -1,0 +1,22 @@
+{
+	"printWidth": 120,
+	"tabWidth": 4,
+	"singleQuote": true,
+	"bracketSpacing": false,
+	"trailingComma": "es5",
+	"semi": false,
+	"newline-before-return": true,
+	"no-duplicate-variable": [
+		true,
+		"check-parameters"
+	],
+	"no-var-keyword": true,
+	"overrides": [
+		{
+			"files": ["src/**/*.json"],
+			"options": {
+				"tabWidth": 2
+			}
+		}
+	]
+}
