@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/turn-and-learn/static/css/main.f7d694c2.chunk.css",
+    "main.js": "/turn-and-learn/static/js/main.5e94b6d0.chunk.js",
+    "main.js.map": "/turn-and-learn/static/js/main.5e94b6d0.chunk.js.map",
+    "runtime-main.js": "/turn-and-learn/static/js/runtime-main.21741d60.js",
+    "runtime-main.js.map": "/turn-and-learn/static/js/runtime-main.21741d60.js.map",
+    "static/js/2.307dda5c.chunk.js": "/turn-and-learn/static/js/2.307dda5c.chunk.js",
+    "static/js/2.307dda5c.chunk.js.map": "/turn-and-learn/static/js/2.307dda5c.chunk.js.map",
+    "index.html": "/turn-and-learn/index.html",
+    "static/css/main.f7d694c2.chunk.css.map": "/turn-and-learn/static/css/main.f7d694c2.chunk.css.map",
+    "static/js/2.307dda5c.chunk.js.LICENSE.txt": "/turn-and-learn/static/js/2.307dda5c.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/turn-and-learn/static/media/Roboto-Regular.a8d6ac03.ttf",
+    "static/media/index.module.scss": "/turn-and-learn/static/media/register.d80bd185.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.21741d60.js",
+    "static/js/2.307dda5c.chunk.js",
+    "static/css/main.f7d694c2.chunk.css",
+    "static/js/main.5e94b6d0.chunk.js"
+  ]
+}
