@@ -1,0 +1,69 @@
+@import 'src/index';
+
+$lightOpenPassIcon: url("./images/light/open-pass.svg");
+$lightHidePassIcon: url("./images/light/hide-pass.svg");
+$darkOpenPassIcon: url("./images/dark/open-pass.svg");
+$darkHidePassIcon: url("./images/dark/hide-pass.svg");
+
+$openAndHidePassIconWidth: 16.5px;
+$openAndHidePassIconHeight: 14px;
+
+
+$lightPassIcon: url("./images/light/pass-icon.svg");
+$darkPassIcon: url("./images/dark/pass-icon.svg");
+$passIconWidth: 14px;
+$passIconHeight: 16px;
+
+.passIcon {
+  &::before {
+    content: '';
+    width: $passIconWidth;
+    aspect-ratio: getAspectRatio($passIconWidth, $passIconHeight);
+    background-image: $lightPassIcon;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  body[id = 'dark'] &::before {
+    background-image: $darkPassIcon;
+  }
+}
+
+.toggleViewPassBtn {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    visibility: hidden;
+    top: 2px;
+    right: 0;
+    width: $openAndHidePassIconWidth;
+    aspect-ratio: getAspectRatio($openAndHidePassIconWidth, $openAndHidePassIconHeight);
+  }
+  &::before {
+    background-image: $lightOpenPassIcon;
+  }
+  &::after {
+    background-image: $lightHidePassIcon;
+  }
+  body[id = 'dark'] &::before {
+    background-image: $darkOpenPassIcon;
+  }
+  body[id = 'dark'] &::after {
+    background-image: $darkHidePassIcon;
+  }
+
+  &.openPass::before {
+    visibility: initial;
+  }
+  &.hidePass::after {
+    visibility: initial;
+  }
+}
+

@@ -1,0 +1,20 @@
+$formPadding: 79px 60px 78px;
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: $formPadding;
+
+  background-color: #FFFFFF;
+  box-shadow: 4px 6px 49px -22px #00000025;
+
+  @media (max-width: 768px) {
+    & {
+      align-items: center;
+
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+}

@@ -36,6 +36,10 @@
 		}
 	},
 	"rules": {
+		"jsx-a11y/label-has-associated-control": "off",
+		"class-methods-use-this": "off",
+		"camelcase": "off",
+		"react/jsx-props-no-spreading": "off",
 		"no-case-declarations": "off",
 		"no-continue": "off",
 		"no-shadow": "off",
@@ -63,6 +67,7 @@
 						"namedComponents": "arrow-function"
 					}
 				],
+				"react/button-has-type": 0,
 				"react/jsx-filename-extension": [
 					1, {
 						"extensions": [".jsx", ".tsx"]

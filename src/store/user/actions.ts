@@ -1,10 +1,22 @@
-import {IUser, UserAvatarUrl, UserTheme} from 'types/user.types'
+import {Dispatch} from 'redux'
 
-import {UserReducerActionTypes, FetchUserDataAction, ChangeAvatarAction, ChangeThemeAction} from './types'
+import {IResponseUserData} from 'types'
+import {IUser, UserAvatarUrl} from 'types/user.types'
+
+import {ChangeThemeAction, LogInAction, PullAuthTokenAction} from 'store/system/types'
+import {changeTheme, logIn, pullAuthToken} from 'store/system/actions'
+
+import {ChangeAvatarAction, FetchUserDataAction, UserReducerActionTypes} from './types'
+
+type FetchUserDataAndLogIn =
+    FetchUserDataAction
+    | LogInAction
+    | ChangeThemeAction
+    | PullAuthTokenAction
 
 export const fetchUserData = (data: IUser): FetchUserDataAction => ({
     type: UserReducerActionTypes.FETCH_USER_DATA,
-    payload: data,
+    payload: data
 })
 
 export const changeAvatar = (avatarUrl: UserAvatarUrl): ChangeAvatarAction => ({
@@ -12,7 +24,13 @@ export const changeAvatar = (avatarUrl: UserAvatarUrl): ChangeAvatarAction => ({
     payload: avatarUrl,
 })
 
-export const changeTheme = (theme: UserTheme): ChangeThemeAction => ({
-    type: UserReducerActionTypes.CHANGE_THEME,
-    payload: theme,
-})
+export const fetchUserDataAndLogIn =
+    ({avatarUrl, authToken, theme, login}: IResponseUserData) =>
+    (dispatch: Dispatch<FetchUserDataAndLogIn>) => {
+        dispatch(fetchUserData({avatarUrl, login}))
+        dispatch(changeTheme(theme))
+        dispatch(pullAuthToken(authToken))
+        dispatch(logIn())
+    }
+
+

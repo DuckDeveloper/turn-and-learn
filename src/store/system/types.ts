@@ -1,10 +1,11 @@
-import {ComponentInModal, DisplayMode, ScreenResolution} from 'types/system.types'
+import {AuthToken, ComponentInModal, DisplayMode, Theme} from 'types/system.types'
 
 export enum SystemReducerActionTypes {
     LOG_IN = 'LOG_IN',
     LOG_OUT = 'LOG_OUT',
-    CHANGE_SCREEN_RESOLUTION = 'CHANGE_SCREEN_RESOLUTION',
     CHANGE_CARDS_DISPLAY_MODE = 'CHANGE_CARDS_DISPLAY_MODE',
+    CHANGE_THEME = 'CHANGE_THEME',
+    PULL_AUTH_TOKEN = 'PULL_AUTH_TOKEN',
     OPEN_MODAL_WINDOW = 'OPEN_MODAL_WINDOW',
     CLOSE_MODAL_WINDOW = 'CLOSE_MODAL_WINDOW',
 }
@@ -17,14 +18,19 @@ export interface LogOutAction {
     type: SystemReducerActionTypes.LOG_OUT
 }
 
-export interface ChangeScreenResolutionAction {
-    type: SystemReducerActionTypes.CHANGE_SCREEN_RESOLUTION
-    payload: ScreenResolution
-}
-
 export interface ChangeCardsDisplayModeAction {
     type: SystemReducerActionTypes.CHANGE_CARDS_DISPLAY_MODE
     payload: DisplayMode
+}
+
+export interface ChangeThemeAction {
+    type: SystemReducerActionTypes.CHANGE_THEME
+    payload: Theme
+}
+
+export interface PullAuthTokenAction {
+    type: SystemReducerActionTypes.PULL_AUTH_TOKEN
+    payload: AuthToken
 }
 
 export interface OpenModalWindowAction {
