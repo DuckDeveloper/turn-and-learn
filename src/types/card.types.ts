@@ -6,7 +6,7 @@ export type CardDate = Date
 
 export interface ICard {
     id: CardId
-    en: CardText
-    ru: CardText
+    cardFirstSide: CardText
+    cardSecondSide: CardText
     date: CardDate
 }

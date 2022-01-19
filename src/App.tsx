@@ -1,8 +1,16 @@
-import React from 'react'
-import {Provider} from 'react-redux'
+import React, {useEffect} from 'react'
 
-import store from 'store'
+import RegistrationPage from 'pages/Auth/RegistrationPage'
+import {useTypedSelector} from 'hooks'
 
-const App = () => <Provider store={store}>123</Provider>
+const App = () => {
+    const {theme} = useTypedSelector((state) => state.systemState)
+
+    useEffect(() => {
+        document.body.id = theme
+    }, [theme])
+
+    return <RegistrationPage />
+}
 
 export default App

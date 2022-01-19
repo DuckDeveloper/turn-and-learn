@@ -1,10 +1,20 @@
-import {combineReducers, createStore} from 'redux'
+import {applyMiddleware, combineReducers, createStore} from 'redux'
+import thunk from 'redux-thunk'
+import {composeWithDevTools} from 'redux-devtools-extension'
 
-import {userReducer} from './user/reducer'
-import {cardsListReducer} from './cardsList/reducer'
-import {selectedCardsIdListReducer} from './selectedCardsIdList/reducer'
-import {foldersListReducer} from './foldersList/reducer'
-import {systemReducer} from './system/reducer'
+import {userReducer, userActions} from './user'
+import {systemReducer, systemActions} from './system'
+import {selectedCardsIdListReducer, selectedCardsIdListActions} from './selectedCardsIdList'
+import {foldersListReducer, foldersListActions} from './foldersList'
+import {cardsListReducer, cardsListActions} from './cardsList'
+
+export const actions = {
+    userActions,
+    cardsListActions,
+    foldersListActions,
+    selectedCardsIdListActions,
+    systemActions,
+}
 
 const rootReducer = combineReducers({
     userState: userReducer,
@@ -14,4 +24,6 @@ const rootReducer = combineReducers({
     systemState: systemReducer,
 })
 
-export default createStore(rootReducer)
+export type RootState = ReturnType<typeof rootReducer>
+
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

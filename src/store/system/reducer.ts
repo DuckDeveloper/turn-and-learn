@@ -4,8 +4,9 @@ import {
     SystemReducerActionTypes,
     LogInAction,
     LogOutAction,
-    ChangeScreenResolutionAction,
     ChangeCardsDisplayModeAction,
+    ChangeThemeAction,
+    PullAuthTokenAction,
     OpenModalWindowAction,
     CloseModalWindowAction,
 } from './types'
@@ -13,17 +14,19 @@ import {
 type systemReducerAction =
     | LogInAction
     | LogOutAction
-    | ChangeScreenResolutionAction
     | ChangeCardsDisplayModeAction
+    | ChangeThemeAction
+    | PullAuthTokenAction
     | OpenModalWindowAction
     | CloseModalWindowAction
 
 const initialState: ISystem = {
     isAuthorized: false,
-    screenResolution: 0,
     displayMode: 'scroll',
     modalIsOpen: false,
     componentInModal: null,
+    theme: 'light',
+    authToken: ''
 }
 
 export const systemReducer = (state: ISystem = initialState, action: systemReducerAction): ISystem => {
@@ -32,10 +35,14 @@ export const systemReducer = (state: ISystem = initialState, action: systemReduc
             return {...state, isAuthorized: true}
         case SystemReducerActionTypes.LOG_OUT:
             return {...state, isAuthorized: false}
-        case SystemReducerActionTypes.CHANGE_SCREEN_RESOLUTION:
-            return {...state, screenResolution: action.payload}
         case SystemReducerActionTypes.CHANGE_CARDS_DISPLAY_MODE:
             return {...state, displayMode: action.payload}
+        case SystemReducerActionTypes.CHANGE_THEME:
+            if(action.payload === state.theme) return state
+
+            return {...state, theme: action.payload}
+        case SystemReducerActionTypes.PULL_AUTH_TOKEN:
+            return {...state, authToken: action.payload}
         case SystemReducerActionTypes.OPEN_MODAL_WINDOW:
             return {...state, modalIsOpen: true, componentInModal: action.payload}
         case SystemReducerActionTypes.CLOSE_MODAL_WINDOW:

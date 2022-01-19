@@ -1,0 +1,38 @@
+.authButton {
+	width: 100%;
+	border: 2px solid transparent;
+	padding: 23px 0;
+	border-radius: 100px;
+	background-color: #BC9CFF;
+
+	font-size: 1rem;
+	font-family: "Roboto Black", sans-serif;
+	line-height: 62%;
+	color: #FFFFFF;
+
+	&:hover {
+		background-color: #A283E3;
+	}
+
+	&:focus {
+		border: 2px solid blueviolet;
+	}
+
+	&:disabled {
+		background: #D7C5FF;
+		cursor: default;
+	}
+
+	@media (max-width: 1170px) {
+		& {
+			font-size: 1.0625rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		& {
+			font-size: 1.5625rem;
+			padding: 30px 0;
+		}
+	}
+}

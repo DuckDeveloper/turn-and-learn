@@ -1,9 +1,8 @@
-import {IUser, UserAvatarUrl, UserTheme} from 'types/user.types'
+import {IUser, UserAvatarUrl} from 'types/user.types'
 
 export enum UserReducerActionTypes {
     FETCH_USER_DATA = 'FETCH_USER_DATA',
     CHANGE_AVATAR = 'CHANGE_AVATAR',
-    CHANGE_THEME = 'CHANGE_THEME',
 }
 
 export interface FetchUserDataAction {
@@ -16,7 +15,3 @@ export interface ChangeAvatarAction {
     payload: UserAvatarUrl
 }
 
-export interface ChangeThemeAction {
-    type: UserReducerActionTypes.CHANGE_THEME
-    payload: UserTheme
-}

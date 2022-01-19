@@ -29,7 +29,7 @@ export const editCard = (card: ICard): EditCardAction => ({
     payload: card,
 })
 
-type DeleteCardParams = {id: CardId; newCard: ICard}
+type DeleteCardParams = {id: CardId, newCard: ICard}
 export const deleteCard = ({id, newCard}: DeleteCardParams): DeleteCardAction => ({
     type: CardsListReducerActionTypes.DELETE_CARD,
     payload: {
