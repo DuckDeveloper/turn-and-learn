@@ -5,7 +5,7 @@ import {UserReducerActionTypes, FetchUserDataAction, ChangeAvatarAction} from '.
 type UserAction = FetchUserDataAction | ChangeAvatarAction
 
 const initialState: IUser = {
-    login: '',
+    username: '',
     avatarUrl: '',
 }
 

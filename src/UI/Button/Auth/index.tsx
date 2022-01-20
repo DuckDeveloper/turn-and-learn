@@ -6,11 +6,11 @@ import cl from './index.module.scss'
 
 interface AuthButtonProps {
     className?: string
+    isDisabled?: boolean
     isLoading: boolean
-    isDisabled: boolean
 }
 
-const AuthButton: FC<AuthButtonProps> = ({className, isLoading, isDisabled, children}) => (
+const AuthButton: FC<AuthButtonProps> = ({className, isLoading, isDisabled = false, children}) => (
     <button type="submit" disabled={isDisabled} className={getClassName([cl.authButton, className || ''])}>
         {isLoading ? 'LOADING' : children}
     </button>

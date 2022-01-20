@@ -1,15 +1,22 @@
-import {IResponseUserData} from '../../types'
+import {IResponseUserData} from 'types'
+import {AuthToken} from 'types/system.types'
+
 
 interface IAuthentication {
-    login: string
+    username: string
     password: string
 }
 
-export type LogIn = IAuthentication
+export type AuthorizationByAuthToken = AuthToken
+
+export type Authorization = IAuthentication
 
 export type Register = IAuthentication
 
 export interface IAuthService {
-    logIn(body: LogIn): Promise<IResponseUserData>
+    authorizationByAuthToken(body: AuthorizationByAuthToken): Promise<IResponseUserData>
+
+    authorization(body: Authorization): Promise<IResponseUserData>
+
     register(body: Register): Promise<IResponseUserData>
 }

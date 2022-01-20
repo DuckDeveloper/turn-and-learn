@@ -32,7 +32,7 @@ $regImgInitialHeight-S: 507px;
 $authImgInitialWidth-S: 564px;
 $authImgInitialHeight-S: 499px;
 
-.regContainer {
+.authContainer {
   height: 100%;
   padding: 0 16px;
   max-width: 1920px - ((290+16)*2);
@@ -60,13 +60,13 @@ $authImgInitialHeight-S: 499px;
   }
 }
 
-.regBackground {
+.authBackground {
   height: 100vh;
 
   background-color: #F4F7FC;
 }
 
-.regFormWrapper {
+.authFormWrapper {
   $width-L: 414px;
   $width-M: 434px;
   $width-S: 700px;
@@ -82,7 +82,7 @@ $authImgInitialHeight-S: 499px;
   }
 }
 
-.regDecorativeImg {
+.registrationDevorativeImg {
   background-image: $regDecorativeLightImg-L;
   background-repeat: no-repeat;
   width: $regImgInitialWidth-L;
@@ -125,7 +125,7 @@ $authImgInitialHeight-S: 499px;
   }
 }
 
-.authDecorativeImg {
+.authorizationDecorativeImg {
   background-image: $authDecorativeLightImg-L;
   background-repeat: no-repeat;
   max-width: $authImgInitialWidth-L;

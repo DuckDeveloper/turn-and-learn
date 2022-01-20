@@ -3,14 +3,14 @@ import {Dispatch} from 'redux'
 import {IResponseUserData} from 'types'
 import {IUser, UserAvatarUrl} from 'types/user.types'
 
-import {ChangeThemeAction, LogInAction, PullAuthTokenAction} from 'store/system/types'
-import {changeTheme, logIn, pullAuthToken} from 'store/system/actions'
+import {ChangeThemeAction, LoginAction, PullAuthTokenAction} from 'store/system/types'
+import {changeTheme, login, pullAuthToken} from 'store/system/actions'
 
 import {ChangeAvatarAction, FetchUserDataAction, UserReducerActionTypes} from './types'
 
-type FetchUserDataAndLogIn =
+type FetchUserDataAndLogin =
     FetchUserDataAction
-    | LogInAction
+    | LoginAction
     | ChangeThemeAction
     | PullAuthTokenAction
 
@@ -24,13 +24,13 @@ export const changeAvatar = (avatarUrl: UserAvatarUrl): ChangeAvatarAction => ({
     payload: avatarUrl,
 })
 
-export const fetchUserDataAndLogIn =
-    ({avatarUrl, authToken, theme, login}: IResponseUserData) =>
-    (dispatch: Dispatch<FetchUserDataAndLogIn>) => {
-        dispatch(fetchUserData({avatarUrl, login}))
+export const fetchUserDataAndLogin =
+    ({avatarUrl, authToken, theme, username}: IResponseUserData) =>
+    (dispatch: Dispatch<FetchUserDataAndLogin>) => {
+        dispatch(fetchUserData({avatarUrl, username}))
         dispatch(changeTheme(theme))
         dispatch(pullAuthToken(authToken))
-        dispatch(logIn())
+        dispatch(login())
     }
 
 
