@@ -1,7 +1,7 @@
 import React, {FC, memo, useCallback, useState} from 'react'
 
 import {AuthInputProps} from 'UI/Input/Auth'
-import PassInputComponent from 'components/PassInput'
+import PassInputComponent from 'components/Auth/PassInput'
 
 type PassInputProps = Pick<AuthInputProps, 'changeHandler' | 'value' | 'placeholder'>
 

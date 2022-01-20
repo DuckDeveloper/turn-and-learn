@@ -1,11 +1,11 @@
-import {LOCAL_STORAGE_TOKEN_KEY} from 'constants.json'
+import {LOCAL_STORAGE_TOKEN_KEY} from 'constants/system'
 
 import {AuthToken, ComponentInModal, DisplayMode, Theme} from 'types/system.types'
 
 import {
     SystemReducerActionTypes,
-    LogInAction,
-    LogOutAction,
+    LoginAction,
+    LogoutAction,
     ChangeCardsDisplayModeAction,
     ChangeThemeAction,
     PullAuthTokenAction,
@@ -13,12 +13,12 @@ import {
     CloseModalWindowAction,
 } from './types'
 
-export const logIn = (): LogInAction => ({
-    type: SystemReducerActionTypes.LOG_IN,
+export const login = (): LoginAction => ({
+    type: SystemReducerActionTypes.LOGIN,
 })
 
-export const logOut = (): LogOutAction => ({
-    type: SystemReducerActionTypes.LOG_OUT,
+export const logout = (): LogoutAction => ({
+    type: SystemReducerActionTypes.LOGOUT,
 })
 
 export const changeCardsDisplayMode = (displayMode: DisplayMode): ChangeCardsDisplayModeAction => ({

@@ -1,7 +1,7 @@
-export type UserLogin = string
+export type UserUsername = string
 export type UserAvatarUrl = string
 
 export interface IUser {
-    login: UserLogin
+    username: UserUsername
     avatarUrl: UserAvatarUrl
 }

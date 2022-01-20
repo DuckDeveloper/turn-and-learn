@@ -1,21 +1,22 @@
 @import 'src/index';
 
-$lightLoginIcon: url('./images/light/login-icon.svg');
-$darkLoginIcon: url('./images/dark/login-icon.svg');
+$usernameButtonIcon: url('images/login-btn-icon.svg');
+$lightUsernameIcon: url('images/light/username-icon.svg');
+$darkUsernameIcon: url('images/dark/username-icon.svg');
 
-$loginIconWidth: 12px;
-$loginIconHeight: 16px;
+$usernameIconWidth: 12px;
+$usernameIconHeight: 16px;
 
-.loginInput {
+.usernameInput {
   margin-top: 2.375rem;
 }
 
-.loginInputIcon {
+.usernameInputIcon {
   &::before {
     content: '';
-    width: $loginIconWidth;
-    aspect-ratio: getAspectRatio($loginIconWidth, $loginIconHeight);
-    background-image: $lightLoginIcon;
+    width: $usernameIconWidth;
+    aspect-ratio: getAspectRatio($usernameIconWidth, $usernameIconHeight);
+    background-image: $lightUsernameIcon;
     background-repeat: no-repeat;
     position: absolute;
     left: 18px;
@@ -24,11 +25,11 @@ $loginIconHeight: 16px;
   }
 
   body[id = 'dark'] &::before {
-    background-image: $darkLoginIcon;
+    background-image: $darkUsernameIcon;
   }
 }
 
-.regFormWrapper {
+.authFormWrapper {
   display: flex;
   flex-direction: column;
 
@@ -68,6 +69,10 @@ $loginIconHeight: 16px;
   &.authButtonWithFormError {
     margin-top: 0.6875rem;
   }
+}
+
+.usernameButtonDecoration {
+  background-image: $usernameButtonIcon;
 }
 
 .error {
