@@ -1,8 +1,9 @@
-import {AuthToken, ComponentInModal, DisplayMode, Theme} from 'types/system.types'
+import {AuthToken, ComponentInModal, Theme} from 'types/system.types'
 
 export enum SystemReducerActionTypes {
     LOGIN = 'LOGIN',
     LOGOUT = 'LOGOUT',
+    CHANGE_PAGE_NUMBER = 'CHANGE_PAGE_NUMBER',
     CHANGE_CARDS_DISPLAY_MODE = 'CHANGE_CARDS_DISPLAY_MODE',
     CHANGE_THEME = 'CHANGE_THEME',
     PULL_AUTH_TOKEN = 'PULL_AUTH_TOKEN',
@@ -18,9 +19,13 @@ export interface LogoutAction {
     type: SystemReducerActionTypes.LOGOUT
 }
 
-export interface ChangeCardsDisplayModeAction {
+export interface ChangePageNumberAction {
+    type: SystemReducerActionTypes.CHANGE_PAGE_NUMBER
+    payload: number
+}
+
+export interface ChangeCardsListDisplayModeAction {
     type: SystemReducerActionTypes.CHANGE_CARDS_DISPLAY_MODE
-    payload: DisplayMode
 }
 
 export interface ChangeThemeAction {

@@ -1,6 +1,6 @@
-import {IUser} from './user.types'
-import {ISystem} from './system.types'
+import {User} from './user.types'
+import {System} from './system.types'
 
 export type Id = number
 
-export type IResponseUserData = IUser & Pick<ISystem, 'theme' | 'authToken'>
+export type ResponseUserData = User & Pick<System, 'theme' | 'authToken'>

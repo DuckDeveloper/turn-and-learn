@@ -1,4 +1,4 @@
-import {ISystem} from 'types/system.types'
+import {System} from 'types/system.types'
 
 import {LOCAL_STORAGE_TOKEN_KEY} from 'constants/system'
 
@@ -6,7 +6,8 @@ import {
     SystemReducerActionTypes,
     LoginAction,
     LogoutAction,
-    ChangeCardsDisplayModeAction,
+    ChangePageNumberAction,
+    ChangeCardsListDisplayModeAction,
     ChangeThemeAction,
     PullAuthTokenAction,
     OpenModalWindowAction,
@@ -17,38 +18,54 @@ import {
 type systemReducerAction =
     | LoginAction
     | LogoutAction
-    | ChangeCardsDisplayModeAction
+    | ChangePageNumberAction
+    | ChangeCardsListDisplayModeAction
     | ChangeThemeAction
     | PullAuthTokenAction
     | OpenModalWindowAction
     | CloseModalWindowAction
 
-const initialState: ISystem = {
+const initialState: System = {
     isAuthorized: false,
-    displayMode: 'scroll',
+    limitCardsOfPage: 6,
+    pageNumber: 1,
+    cardsListDisplayMode: 'pagination',
     modalIsOpen: false,
     componentInModal: null,
     theme: 'light',
     authToken: localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY) || '',
 }
 
-export const systemReducer = (state: ISystem = initialState, action: systemReducerAction): ISystem => {
+const {
+    LOGIN,
+    LOGOUT,
+    CHANGE_PAGE_NUMBER,
+    CHANGE_CARDS_DISPLAY_MODE,
+    CHANGE_THEME,
+    PULL_AUTH_TOKEN,
+    OPEN_MODAL_WINDOW,
+    CLOSE_MODAL_WINDOW,
+} = SystemReducerActionTypes
+
+export const systemReducer = (state: System = initialState, action: systemReducerAction): System => {
     switch(action.type) {
-        case SystemReducerActionTypes.LOGIN:
+        case LOGIN:
             return {...state, isAuthorized: true}
-        case SystemReducerActionTypes.LOGOUT:
+        case LOGOUT:
             return {...state, isAuthorized: false}
-        case SystemReducerActionTypes.CHANGE_CARDS_DISPLAY_MODE:
-            return {...state, displayMode: action.payload}
-        case SystemReducerActionTypes.CHANGE_THEME:
+        case CHANGE_PAGE_NUMBER:
+            return {...state, pageNumber: action.payload}
+        case CHANGE_CARDS_DISPLAY_MODE:
+            return {...state, cardsListDisplayMode: state.cardsListDisplayMode === 'pagination' ? 'scroll' : 'pagination'}
+        case CHANGE_THEME:
             if (action.payload === state.theme) return state
 
             return {...state, theme: action.payload}
-        case SystemReducerActionTypes.PULL_AUTH_TOKEN:
+        case PULL_AUTH_TOKEN:
             return {...state, authToken: action.payload}
-        case SystemReducerActionTypes.OPEN_MODAL_WINDOW:
+        case OPEN_MODAL_WINDOW:
             return {...state, modalIsOpen: true, componentInModal: action.payload}
-        case SystemReducerActionTypes.CLOSE_MODAL_WINDOW:
+        case CLOSE_MODAL_WINDOW:
             return {...state, modalIsOpen: false, componentInModal: null}
         default:
             return state

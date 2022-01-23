@@ -1,19 +1,25 @@
-import {IUser} from 'types/user.types'
+import {User} from 'types/user.types'
 
-import {UserReducerActionTypes, FetchUserDataAction, ChangeAvatarAction} from './types'
+import {UserReducerActionTypes, GetUserDataAction, ChangeAvatarAction} from './types'
 
-type UserAction = FetchUserDataAction | ChangeAvatarAction
 
-const initialState: IUser = {
+type UserAction = GetUserDataAction | ChangeAvatarAction
+
+const initialState: User = {
     username: '',
     avatarUrl: '',
 }
 
-export const userReducer = (state = initialState, action: UserAction): IUser => {
-    switch (action.type) {
-        case UserReducerActionTypes.FETCH_USER_DATA:
+const {
+    GET_USER_DATA,
+    CHANGE_AVATAR,
+} = UserReducerActionTypes
+
+export const userReducer = (state = initialState, action: UserAction): User => {
+    switch(action.type) {
+        case GET_USER_DATA:
             return {...state, ...action.payload}
-        case UserReducerActionTypes.CHANGE_AVATAR:
+        case CHANGE_AVATAR:
             return {...state, avatarUrl: action.payload}
         default:
             return state

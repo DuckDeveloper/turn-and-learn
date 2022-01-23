@@ -5,8 +5,8 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import {userReducer, userActions} from './user'
 import {systemReducer, systemActions} from './system'
 import {selectedCardsIdListReducer, selectedCardsIdListActions} from './selectedCardsIdList'
-import {foldersListReducer, foldersListActions} from './foldersList'
-import {cardsListReducer, cardsListActions} from './cardsList'
+import {foldersListReducer, foldersListActions} from './folder'
+import {cardsListReducer, cardsListActions} from './card'
 
 export const actions = {
     userActions,
