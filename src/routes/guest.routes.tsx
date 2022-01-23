@@ -1,7 +1,8 @@
 import React from 'react'
 import {useRoutes} from 'react-router-dom'
-import AuthorizationPage from '../pages/Auth/AuthorizationPage'
-import RegistrationPage from '../pages/Auth/RegistrationPage'
+
+import AuthorizationPage from 'pages/Auth/AuthorizationPage'
+import RegistrationPage from 'pages/Auth/RegistrationPage'
 
 
 const GuestRoutes = () => useRoutes(

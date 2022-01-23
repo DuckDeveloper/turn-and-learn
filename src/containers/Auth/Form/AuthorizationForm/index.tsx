@@ -11,7 +11,7 @@ const AuthorizationForm: FC = () => {
     const [password, setPassword] = useState<string>('')
     const [error, setError] = useState<string>('')
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    const {fetchUserDataAndLogin} = useActions<typeof userActions>('user')
+    const {loginAndGetUserDataAction} = useActions<typeof userActions>('user')
 
     const submitIsDisabled = useCallback(() => {
         if(!username.length || !password.length) return EMPTY_USERNAME_OR_PASSWORD
@@ -29,7 +29,7 @@ const AuthorizationForm: FC = () => {
 
         const data = await authService.authorization({username, password})
 
-        fetchUserDataAndLogin(data)
+        loginAndGetUserDataAction(data)
     }, [username, password, authService])
 
     const changeUsernameHandler = useCallback((event) => setUsername(event.target.value.trim()), [])

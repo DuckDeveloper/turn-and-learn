@@ -7,16 +7,16 @@ import {
     CancelSelectAllCardsAction,
 } from './types'
 
-export const selectCard = (id: CardId): SelectCardAction => ({
+export const selectCardAction = (id: CardId): SelectCardAction => ({
     type: SelectedCardsListActionTypes.SELECT_CARD,
     payload: id,
 })
 
-export const cancelSelectCard = (id: CardId): CancelSelectCardAction => ({
+export const cancelSelectCardAction = (id: CardId): CancelSelectCardAction => ({
     type: SelectedCardsListActionTypes.CANCEL_SELECT_CARD,
     payload: id,
 })
 
-export const cancelSelectAllCards = (): CancelSelectAllCardsAction => ({
+export const cancelSelectAllCardsAction = (): CancelSelectAllCardsAction => ({
     type: SelectedCardsListActionTypes.CANCEL_SELECT_ALL_CARDS,
 })

@@ -1,15 +1,19 @@
 import {FC} from 'react'
 
 export type IsAuthorized = boolean
-export type DisplayMode = 'pagination' | 'scroll'
+export type PageNumber = number
+export type LimitCardsOfPage = number
+export type CardsListDisplayMode = 'pagination' | 'scroll'
 export type ModalIsOpen = boolean
 export type ComponentInModal = FC<any> | null
 export type Theme = 'light' | 'dark'
 export type AuthToken = string
 
-export interface ISystem {
+export interface System {
     isAuthorized: IsAuthorized
-    displayMode: DisplayMode
+    pageNumber: PageNumber
+    limitCardsOfPage: LimitCardsOfPage
+    cardsListDisplayMode: CardsListDisplayMode
     modalIsOpen: ModalIsOpen
     componentInModal: ComponentInModal
     theme: Theme

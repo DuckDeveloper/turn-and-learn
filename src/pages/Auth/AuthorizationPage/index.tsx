@@ -1,9 +1,9 @@
 import AuthorizationForm from 'containers/Auth/Form/AuthorizationForm'
-import React from 'react'
+import React, {FC} from 'react'
 
 import cl from '../index.module.scss'
 
-const AuthorizationPage = () => (
+const AuthorizationPage: FC = () => (
     <div className={cl.authBackground}>
         <div className={cl.authContainer}>
             <div className={cl.authorizationDecorativeImg} />

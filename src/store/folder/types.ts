@@ -1,25 +1,25 @@
-import {FolderId, IFolder} from 'types/folder.types'
+import {FolderId, Folder} from 'types/folder.types'
 
 export enum FoldersListReducerActionTypes {
-    FETCH_FOLDERS = 'FETCH_FOLDERS',
+    GET_FOLDERS = 'GET_FOLDERS',
     CREATE_FOLDER = 'CREATE_FOLDER',
     EDIT_FOLDER = 'EDIT_FOLDER',
     DELETE_FOLDER = 'DELETE_FOLDER',
 }
 
-export interface FetchFoldersAction {
-    type: FoldersListReducerActionTypes.FETCH_FOLDERS
-    payload: IFolder[]
+export interface GetFoldersAction {
+    type: FoldersListReducerActionTypes.GET_FOLDERS
+    payload: Folder[]
 }
 
 export interface CreateFolderAction {
     type: FoldersListReducerActionTypes.CREATE_FOLDER
-    payload: IFolder
+    payload: Folder
 }
 
 export interface EditFolderAction {
     type: FoldersListReducerActionTypes.EDIT_FOLDER
-    payload: IFolder
+    payload: Folder
 }
 
 export interface DeleteFolderAction {

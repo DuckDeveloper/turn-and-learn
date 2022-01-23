@@ -27,7 +27,7 @@ const RegistrationForm: FC = () => {
     const [confirmPassword, setConfirmPassword] = useState<string>('')
     const [error, setError] = useState<string>('')
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    const {fetchUserDataAndLogin} = useActions<typeof userActions>('user')
+    const {loginAndGetUserDataAction} = useActions<typeof userActions>('user')
 
     const submitIsDisabled = useCallback(
         () => {
@@ -52,7 +52,7 @@ const RegistrationForm: FC = () => {
         }
         const data = await authService.register({username, password})
 
-        fetchUserDataAndLogin(data)
+        loginAndGetUserDataAction(data)
     }, [authService, username, password, submitIsDisabled])
 
     const changeUsernameHandler = useCallback((event) => setUsername(event.target.value.trim()), [])

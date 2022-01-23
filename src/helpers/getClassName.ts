@@ -1,8 +1,8 @@
-interface IPossibleClassName {
+interface PossibleClassName {
     [key: string]: boolean
 }
 
-type GetClassNameValue = string | IPossibleClassName
+type GetClassNameValue = string | PossibleClassName
 
 const getClassName = (classNames: GetClassNameValue[]) =>
     classNames.reduce((accum: string, value: GetClassNameValue) => {

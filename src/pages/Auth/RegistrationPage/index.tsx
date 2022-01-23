@@ -1,9 +1,9 @@
 import RegistrationForm from 'containers/Auth/Form/RegistrationForm'
-import React from 'react'
+import React, {FC} from 'react'
 
 import cl from '../index.module.scss'
 
-const RegistrationPage = () => (
+const RegistrationPage: FC = () => (
     <div className={cl.authBackground}>
         <div className={cl.authContainer}>
             <div className={cl.registrationDevorativeImg} />

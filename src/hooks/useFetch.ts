@@ -12,7 +12,7 @@ type UseFetch = (callback: () => Promise<void> | void, params: IUseFetchParams) 
 const useFetch: UseFetch = (callback, {setError, setIsLoading: changeIsLoading}) => {
     const hasStrangerSetIsLoading = Boolean(changeIsLoading)
     const [isLoading, setIsLoading] = hasStrangerSetIsLoading
-                                      ? [undefined, changeIsLoading]
+                                      ? [null, changeIsLoading]
                                       : useState<boolean>(false)
 
     const fetching: Fetching = async () => {

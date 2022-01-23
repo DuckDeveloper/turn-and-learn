@@ -1,12 +1,13 @@
 import React from 'react'
 import {Navigate, useRoutes} from 'react-router-dom'
+import Main from 'pages/Main'
 
 
 const UserRoutes = () => useRoutes(
     [
         {
             index: true,
-            element: <h1>sadsad</h1>,
+            element: <Main/>,
         },
         {
             path: 'reg',

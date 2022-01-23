@@ -7,20 +7,27 @@ import {
     CancelSelectAllCardsAction,
 } from './types'
 
+
 type SelectedCardsIdListAction = SelectCardAction | CancelSelectCardAction | CancelSelectAllCardsAction
 
 const initialState: CardId[] = []
 
+const {
+    SELECT_CARD,
+    CANCEL_SELECT_CARD,
+    CANCEL_SELECT_ALL_CARDS,
+} = SelectedCardsListActionTypes
+
 export const selectedCardsIdListReducer = (
     state: CardId[] = initialState,
-    action: SelectedCardsIdListAction
+    action: SelectedCardsIdListAction,
 ): CardId[] => {
-    switch (action.type) {
-        case SelectedCardsListActionTypes.SELECT_CARD:
+    switch(action.type) {
+        case SELECT_CARD:
             return [...state, action.payload]
-        case SelectedCardsListActionTypes.CANCEL_SELECT_CARD:
+        case CANCEL_SELECT_CARD:
             return state.filter((cardId) => cardId !== action.payload)
-        case SelectedCardsListActionTypes.CANCEL_SELECT_ALL_CARDS:
+        case CANCEL_SELECT_ALL_CARDS:
             return []
         default:
             return state

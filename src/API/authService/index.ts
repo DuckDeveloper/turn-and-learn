@@ -1,10 +1,10 @@
 import {BASE_API_URL} from 'constants/system'
 import {getResponse} from 'helpers'
 
-import {IAuthService, Authorization, Register} from './types'
+import {AuthService, AuthorizationParams, RegisterParams} from './types'
 
 
-const authService: IAuthService = {
+const authService: AuthService = {
     async authorizationByAuthToken(authToken) {
         const apiUrl = 'auth/verification'
         const params = {
@@ -17,7 +17,7 @@ const authService: IAuthService = {
 
         return getResponse(`${ BASE_API_URL }/${ apiUrl }`, params)
     },
-    async authorization({username, password}: Authorization) {
+    async authorization({username, password}: AuthorizationParams) {
         const apiUrl = 'auth/authorization'
         const params = {
             method: 'POST',
@@ -29,7 +29,7 @@ const authService: IAuthService = {
 
         return getResponse(`${ BASE_API_URL }/${ apiUrl }`, params)
     },
-    async register({username, password}: Register) {
+    async register({username, password}: RegisterParams) {
         const apiUrl = 'auth/registration'
         const params = {
             method: 'POST',

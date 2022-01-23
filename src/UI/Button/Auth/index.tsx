@@ -5,9 +5,9 @@ import {getClassName} from 'helpers'
 import cl from './index.module.scss'
 
 interface AuthButtonProps {
+    isLoading: boolean
     className?: string
     isDisabled?: boolean
-    isLoading: boolean
 }
 
 const AuthButton: FC<AuthButtonProps> = ({className, isLoading, isDisabled = false, children}) => (
@@ -17,7 +17,8 @@ const AuthButton: FC<AuthButtonProps> = ({className, isLoading, isDisabled = fal
 )
 
 AuthButton.defaultProps = {
-    className: undefined
+    className: undefined,
+    isDisabled: undefined,
 }
 
 export default AuthButton

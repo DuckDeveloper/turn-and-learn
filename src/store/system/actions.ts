@@ -1,37 +1,44 @@
 import {LOCAL_STORAGE_TOKEN_KEY} from 'constants/system'
 
-import {AuthToken, ComponentInModal, DisplayMode, Theme} from 'types/system.types'
+import {AuthToken, ComponentInModal, PageNumber, Theme} from 'types/system.types'
 
 import {
     SystemReducerActionTypes,
     LoginAction,
     LogoutAction,
-    ChangeCardsDisplayModeAction,
+    ChangePageNumberAction,
+    ChangeCardsListDisplayModeAction,
     ChangeThemeAction,
     PullAuthTokenAction,
     OpenModalWindowAction,
     CloseModalWindowAction,
 } from './types'
 
-export const login = (): LoginAction => ({
+
+export const loginAction = (): LoginAction => ({
     type: SystemReducerActionTypes.LOGIN,
 })
 
-export const logout = (): LogoutAction => ({
+export const logoutAction = (): LogoutAction => ({
     type: SystemReducerActionTypes.LOGOUT,
 })
 
-export const changeCardsDisplayMode = (displayMode: DisplayMode): ChangeCardsDisplayModeAction => ({
-    type: SystemReducerActionTypes.CHANGE_CARDS_DISPLAY_MODE,
-    payload: displayMode,
+export const changePageNumberAction = (newPageNumberValue: PageNumber): ChangePageNumberAction => ({
+    type: SystemReducerActionTypes.CHANGE_PAGE_NUMBER,
+    payload: newPageNumberValue,
 })
 
-export const changeTheme = (theme: Theme): ChangeThemeAction => ({
+export const changeCardsListDisplayModeAction = (): ChangeCardsListDisplayModeAction => ({
+    type: SystemReducerActionTypes.CHANGE_CARDS_DISPLAY_MODE,
+})
+
+
+export const changeThemeAction = (theme: Theme): ChangeThemeAction => ({
     type: SystemReducerActionTypes.CHANGE_THEME,
     payload: theme,
 })
 
-export const pullAuthToken = (authToken: AuthToken): PullAuthTokenAction => {
+export const pullAuthTokenAction = (authToken: AuthToken): PullAuthTokenAction => {
     localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, authToken)
 
     return {
@@ -40,11 +47,11 @@ export const pullAuthToken = (authToken: AuthToken): PullAuthTokenAction => {
     }
 }
 
-export const openModalWindow = (componentInModal: ComponentInModal): OpenModalWindowAction => ({
+export const openModalWindowAction = (componentInModal: ComponentInModal): OpenModalWindowAction => ({
     type: SystemReducerActionTypes.OPEN_MODAL_WINDOW,
     payload: componentInModal,
 })
 
-export const closeModalWindow = (): CloseModalWindowAction => ({
+export const closeModalWindowAction = (): CloseModalWindowAction => ({
     type: SystemReducerActionTypes.CLOSE_MODAL_WINDOW,
 })
