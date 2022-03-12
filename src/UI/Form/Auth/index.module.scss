@@ -1,20 +1,26 @@
-$formPadding: 79px 60px 78px;
+@import 'src/assets/index';
 
-.authForm {
+.form {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: $formPadding;
+  padding: rem(79px) rem(60px) rem(78px);
+  border-radius: rem(14px);
 
-  background-color: #FFFFFF;
+  background-color: $white;
   box-shadow: 4px 6px 49px -22px #00000025;
 
-  @media (max-width: 768px) {
-    & {
-      align-items: center;
-
-      background-color: transparent;
-      box-shadow: none;
-    }
+  @include dark_theme {
+    background-color: $medium-black;
+    box-shadow: none;
   }
+
+  //@media (max-width: 768px) {
+  //  & {
+  //    align-items: center;
+  //
+  //    background-color: transparent;
+  //    box-shadow: none;
+  //  }
+  //}
 }

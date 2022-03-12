@@ -8,7 +8,7 @@ import GetCards from './GetCards'
 
 const GetCardsPaginationMode: FC = () => {
     const {getCardsScrollModeAction} = useActions<typeof cardsListActions>('cardsList')
-    console.log(456)
+
     return <GetCards getCardsAction={ getCardsScrollModeAction }/>
 }
 

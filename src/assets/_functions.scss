@@ -1,0 +1,19 @@
+@function getAspectRatio($width, $height) {
+  @return $width / $height
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+@function rem($size, $base: $base-font-size) {
+  $pxUnitless: strip-unit($size);
+  @return #{round(($pxUnitless / $base) * 1000) / 1000}rem;
+}
+
+@function check-is-falsy($value) {
+  @return if($value == '', true, false)
+}

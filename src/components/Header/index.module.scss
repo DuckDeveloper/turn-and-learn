@@ -1,0 +1,104 @@
+@import 'src/assets/index';
+
+.header {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $white;
+
+  &.shadowWrapper, .shadowWrapper {
+    box-shadow: 0 2px 9px 0 #0000001A;
+
+    @include dark_theme {
+      box-shadow: 0 4px 11px 0 #00000040;
+    }
+  }
+
+  @include dark_theme {
+    background: $medium-black;
+  }
+
+  .logo, .editBtnWrapper {
+    padding: rem(25px) rem(34px);
+  }
+
+  .editBtnWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .search {
+      width: 50%;
+      padding-left: rem(30px);
+      border-left: 1px solid $light-grey;
+      display: flex;
+      align-items: center;
+
+      @include dark_theme {
+        border-color: $white;
+      }
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+
+      .avatar {
+        margin-right: rem(17px);
+        padding: rem(16px) 0;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .changeThemeBtnWrapper {
+    padding: 0 rem(34px) 0 rem(27px);
+  }
+
+  .changeThemeBtn {
+    width: rem(46px);
+    height: rem(46px);
+    background: url('./images/light/changeTheme.svg') no-repeat;
+    background-size: contain;
+
+    @include dark_theme {
+      background: url("./images/dark/changeTheme.svg") no-repeat;
+    }
+  }
+
+
+  .editBtnWrapper {
+    border-left: 1px solid $light-grey;
+  }
+
+  .editBtn {
+    width: rem(28px);
+    height: rem(28px);
+    background: url("./images/light/edit.svg") no-repeat;
+    background-size: contain;
+
+    @include dark_theme {
+      background: url("./images/dark/edit.svg") no-repeat;
+    }
+  }
+}
+
+.logoutIcon {
+  &::before {
+    content: url("./images/light/logout.svg");
+    margin-right: rem(9px);
+  }
+
+  @include dark_theme {
+    &::before {
+      content: url("./images/dark/logout.svg");
+    }
+  }
+}

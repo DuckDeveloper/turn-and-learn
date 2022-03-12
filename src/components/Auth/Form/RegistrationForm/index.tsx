@@ -1,17 +1,18 @@
 import React, {FC} from 'react'
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 import {getClassName} from 'helpers'
 
 import AuthInput from 'UI/Input/Auth'
-import AuthForm, {AuthFormProps} from 'UI/Form/Auth'
+import AuthForm, {AuthFormParams} from 'UI/Form/Auth'
 import AuthButton from 'UI/Button/Auth'
 
 import PassInput from 'containers/Auth/PassInput'
 
 import cl from '../index.module.scss'
 
-interface RegistrationFormProps extends AuthFormProps {
+
+interface RegistrationFormParams extends AuthFormParams {
     isLoading: boolean
     error: string
     username: string
@@ -22,7 +23,7 @@ interface RegistrationFormProps extends AuthFormProps {
     changeConfirmPasswordHandler: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const RegistrationForm: FC<RegistrationFormProps> = ({
+const RegistrationForm: FC<RegistrationFormParams> = ({
     onSubmit,
     setError,
     setIsLoading,
@@ -35,30 +36,48 @@ const RegistrationForm: FC<RegistrationFormProps> = ({
     error,
     isLoading,
 }) => (
-    <div className={cl.authFormWrapper}>
-        <AuthForm onSubmit={onSubmit} setError={setError} setIsLoading={setIsLoading}>
+    <div className={ cl.formWrapper }>
+        <AuthForm onSubmit={ onSubmit } setError={ setError } setIsLoading={ setIsLoading }>
             <p>Hey there,</p>
             <h1>Create an Account</h1>
             <AuthInput
-                className={getClassName([cl.usernameInputIcon, cl.usernameInput])}
+                className={ getClassName([cl.icon, cl.usernameInput]) }
                 placeholder="Username"
-                value={username}
-                changeHandler={changeUsernameHandler}
+                value={ username }
+                changeHandler={ changeUsernameHandler }
                 type="text"
             />
-            <PassInput placeholder="Password" value={password} changeHandler={changePasswordHandler} />
+            <PassInput
+                placeholder="Password"
+                value={ password }
+                changeHandler={ changePasswordHandler }
+            />
             <PassInput
                 placeholder="Re-enter password"
-                value={confirmPassword}
-                changeHandler={changeConfirmPasswordHandler}
+                value={ confirmPassword }
+                changeHandler={ changeConfirmPasswordHandler }
             />
-            {error && <p className={cl.error}>{error}</p>}
-            <AuthButton className={getClassName([cl.authButton, {
-                [cl.authButtonWithFormError]: Boolean(error),
-            }])} isLoading={isLoading} isDisabled={isLoading}>
+            { error && <p className={ cl.error }>{ error }</p> }
+            <AuthButton
+                isLoading={ isLoading }
+                isDisabled={ isLoading }
+                className={
+                    getClassName([
+                        cl.button,
+                        {
+                            [cl.buttonWithError]: Boolean(error),
+                        },
+                    ])
+                }
+            >
                 Register
             </AuthButton>
-            <p className={cl.centered}>Already have an account? <NavLink className={cl.link} to="/">Login</NavLink></p>
+            <p className={ cl.centered }>
+                Already have an account?&nbsp;
+                <NavLink className={ cl.link } to="/">
+                    Login
+                </NavLink>
+            </p>
         </AuthForm>
     </div>
 )

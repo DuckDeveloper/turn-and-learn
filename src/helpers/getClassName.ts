@@ -13,13 +13,13 @@ const getClassName = (classNames: GetClassNameValue[]) =>
 
             values.forEach(([className, isNeeded]) => {
                 if (isNeeded) {
-                    classNamesChain = `${classNamesChain} ${className}`
+                    classNamesChain = `${ classNamesChain } ${ className }`
                 }
             })
 
             return classNamesChain
         }
-        classNamesChain = `${classNamesChain} ${value}`
+        classNamesChain = `${ classNamesChain } ${ value }`
 
         return classNamesChain
     }, '')

@@ -1,4 +1,4 @@
-import {AuthToken, ComponentInModal, Theme} from 'types/system.types'
+import {AuthToken, ComponentInModal, PageTheme} from 'types/system.types'
 
 export enum SystemReducerActionTypes {
     LOGIN = 'LOGIN',
@@ -30,7 +30,7 @@ export interface ChangeCardsListDisplayModeAction {
 
 export interface ChangeThemeAction {
     type: SystemReducerActionTypes.CHANGE_THEME
-    payload: Theme
+    payload: PageTheme
 }
 
 export interface PullAuthTokenAction {

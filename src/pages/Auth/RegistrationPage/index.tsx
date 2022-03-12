@@ -4,10 +4,10 @@ import React, {FC} from 'react'
 import cl from '../index.module.scss'
 
 const RegistrationPage: FC = () => (
-    <div className={cl.authBackground}>
-        <div className={cl.authContainer}>
-            <div className={cl.registrationDevorativeImg} />
-            <div className={cl.authFormWrapper}>
+    <div className={cl.background}>
+        <div className={cl.container}>
+            <div className={cl.decorativeImgReg} />
+            <div className={cl.formWrapper}>
                 <RegistrationForm />
             </div>
         </div>

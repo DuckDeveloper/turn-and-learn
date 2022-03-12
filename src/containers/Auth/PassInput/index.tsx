@@ -1,11 +1,11 @@
 import React, {FC, memo, useCallback, useState} from 'react'
 
-import {AuthInputProps} from 'UI/Input/Auth'
+import {AuthInputParams} from 'UI/Input/Auth'
 import PassInputComponent from 'components/Auth/PassInput'
 
-type PassInputProps = Pick<AuthInputProps, 'changeHandler' | 'value' | 'placeholder'>
+type PassInputParams = Pick<AuthInputParams, 'changeHandler' | 'value' | 'placeholder'>
 
-const PassInput: FC<PassInputProps> = ({changeHandler, placeholder, value}) => {
+const PassInput: FC<PassInputParams> = ({changeHandler, placeholder, value}) => {
     const [type, setType] = useState<'text' | 'password'>('password')
 
     const changeInputType = useCallback(() => setType((prev) => (prev === 'text' ? 'password' : 'text')), [setType])
