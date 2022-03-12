@@ -1,6 +1,6 @@
 import {LOCAL_STORAGE_TOKEN_KEY} from 'constants/system'
 
-import {AuthToken, ComponentInModal, PageNumber, Theme} from 'types/system.types'
+import {AuthToken, ComponentInModal, PageNumber, PageTheme} from 'types/system.types'
 
 import {
     SystemReducerActionTypes,
@@ -33,9 +33,9 @@ export const changeCardsListDisplayModeAction = (): ChangeCardsListDisplayModeAc
 })
 
 
-export const changeThemeAction = (theme: Theme): ChangeThemeAction => ({
+export const changeThemeAction = (pageTheme: PageTheme): ChangeThemeAction => ({
     type: SystemReducerActionTypes.CHANGE_THEME,
-    payload: theme,
+    payload: pageTheme,
 })
 
 export const pullAuthTokenAction = (authToken: AuthToken): PullAuthTokenAction => {

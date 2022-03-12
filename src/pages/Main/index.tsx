@@ -8,6 +8,8 @@ import GetCardsPaginationMode from 'containers/GetCards/GetCardsPaginationMode'
 import GetCardsScrollMode from 'containers/GetCards/GetCardsScrollMode'
 import CardsList from 'containers/CardsList'
 
+import cl from './index.module.scss'
+
 
 const Main: FC = () => {
     const {cardsListDisplayMode} = useTypedSelector((state) => state.systemState)
@@ -27,11 +29,16 @@ const Main: FC = () => {
                 ? <GetCardsPaginationMode/>
                 : <GetCardsScrollMode/>
             }
-            <div>
+            <div className={cl.container}>
+                <div className={cl.header}>
+                    <h1>My Cards</h1>
+                    <div>Date Filter</div>
+                </div>
                 <CardsList/>
-            </div>
-            <div>
-                <button onClick={ clickHandler }>Change display Mode</button>
+                <div className={cl.footer}>
+                    <button onClick={ clickHandler }>Change display Mode</button>
+                    <div>Pagination</div>
+                </div>
             </div>
         </>
     )

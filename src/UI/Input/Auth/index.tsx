@@ -4,7 +4,7 @@ import {getClassName} from 'helpers'
 import cl from './index.module.scss'
 
 
-export interface AuthInputProps {
+export interface AuthInputParams {
     className?: string
     placeholder: string
     value: string
@@ -13,29 +13,27 @@ export interface AuthInputProps {
     changeHandler: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
-const AuthInput: FC<AuthInputProps> = ({changeHandler, placeholder, value, className, type, children}) => {
-    const [isFocused, setIsFocused] = useState<boolean>(false)
+const AuthInput: FC<AuthInputParams> = ({changeHandler, placeholder, value, className, type, children}) => {
+    const [isFocused, setIsFocused] = useState(false)
     const focusHandler = useCallback(() => setIsFocused(true), [setIsFocused])
     const blurHandler = useCallback(() => setIsFocused(false), [setIsFocused])
 
-    const inputContainerClassName = useMemo(
-        () => getClassName([cl.inputAuthContainer, className || '']),
+    const containerClassName = useMemo(
+        () => getClassName([cl.container, className || '']),
         [cl, className, getClassName],
     )
-    const inputClassName = useMemo(() => getClassName([cl.inputAuth]), [cl, getClassName])
 
     return (
         <label
             className={ getClassName([
-                inputContainerClassName, {
-                    [cl.inputIsFocused]: isFocused,
+                containerClassName, {
+                    [cl.focused]: isFocused,
                 },
             ]) }
         >
             <input
                 placeholder={ placeholder }
                 value={ value }
-                className={ inputClassName }
                 onChange={ changeHandler }
                 onFocus={ focusHandler }
                 onBlur={ blurHandler }

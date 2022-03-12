@@ -1,7 +1,7 @@
 import {Dispatch} from 'redux'
 
 import {ResponseUserData} from 'types'
-import {User, UserAvatarUrl} from 'types/user.types'
+import {User, AvatarUrl} from 'types/user.types'
 
 import {ChangeThemeAction, LoginAction, PullAuthTokenAction} from 'store/system/types'
 import {changeThemeAction, loginAction, pullAuthTokenAction} from 'store/system/actions'
@@ -19,16 +19,16 @@ export const getUserDataAction = (data: User): GetUserDataAction => ({
     payload: data
 })
 
-export const changeAvatarAction = (avatarUrl: UserAvatarUrl): ChangeAvatarAction => ({
+export const changeAvatarAction = (avatarUrl: AvatarUrl): ChangeAvatarAction => ({
     type: UserReducerActionTypes.CHANGE_AVATAR,
     payload: avatarUrl,
 })
 
 export const loginAndGetUserDataAction =
-    ({avatarUrl, authToken, theme, username}: ResponseUserData) =>
+    ({avatarUrl, authToken, pageTheme, username}: ResponseUserData) =>
     (dispatch: Dispatch<LoginAndGetUserData>) => {
         dispatch(getUserDataAction({avatarUrl, username}))
-        dispatch(changeThemeAction(theme))
+        dispatch(changeThemeAction(pageTheme))
         dispatch(pullAuthTokenAction(authToken))
         dispatch(loginAction())
     }

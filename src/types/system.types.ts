@@ -6,7 +6,7 @@ export type LimitCardsOfPage = number
 export type CardsListDisplayMode = 'pagination' | 'scroll'
 export type ModalIsOpen = boolean
 export type ComponentInModal = FC<any> | null
-export type Theme = 'light' | 'dark'
+export type PageTheme = 'light' | 'dark'
 export type AuthToken = string
 
 export interface System {
@@ -16,6 +16,6 @@ export interface System {
     cardsListDisplayMode: CardsListDisplayMode
     modalIsOpen: ModalIsOpen
     componentInModal: ComponentInModal
-    theme: Theme
+    pageTheme: PageTheme
     authToken: AuthToken
 }

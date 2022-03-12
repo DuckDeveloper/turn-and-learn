@@ -1,0 +1,79 @@
+@import "src/assets/index";
+
+.firebox {
+  height: rem(260px);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  perspective: 1000px;
+  border-radius: rem(14px);
+  box-shadow: 4px 6px 49px -22px #6B738F40;
+
+  @include dark_theme {
+    box-shadow: 0px 4px 11px 0px #00000040;
+  }
+
+  & .front, & .back {
+    grid-area: 1 / 1;
+    transition: transform 1s, background-color .5s;
+    backface-visibility: hidden;
+    border-radius: rem(14px);
+    color: $grey;
+
+    @include dark_theme {
+      background-color: $medium-black;
+      color: $dirty-white;
+    }
+
+    &.active {
+      transform: scale(1.01) rotateY(360deg);
+    }
+  }
+
+  & .back {
+    transform: rotateY(180deg);
+
+    background-color: $light-blue;
+    color: $white;
+
+    @include dark_theme {
+      background-color: $dark-grey;
+    }
+  }
+}
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  background: $white;
+
+  &::before, &::after {
+    content: '';
+    width: 100%;
+    height: rem(73px);
+    background-color: transparent;
+  }
+}
+
+.card {
+  height: rem(260px - 73px * 2);
+  background-color: transparent;
+  padding: 0 rem(50px);
+  overflow-y: auto;
+  font-size: rem(15px);
+  line-height: rem(22.5px);
+  color: inherit;
+
+  &::-webkit-scrollbar, &::-webkit-scrollbar-track, &::-webkit-scrollbar-thumb {
+    width: 0;
+    background: transparent;
+  }
+}
+
+.cardsList {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: rem(60px)
+}

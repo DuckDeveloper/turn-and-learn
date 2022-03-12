@@ -3,4 +3,4 @@ import {System} from './system.types'
 
 export type Id = number
 
-export type ResponseUserData = User & Pick<System, 'theme' | 'authToken'>
+export type ResponseUserData = User & Pick<System, 'pageTheme' | 'authToken'>

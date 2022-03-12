@@ -1,4 +1,4 @@
-@import 'src/index';
+@import 'src/assets/index';
 
 $lightOpenPassIcon: url("./images/light/open-pass.svg");
 $lightHidePassIcon: url("./images/light/hide-pass.svg");
@@ -14,25 +14,27 @@ $darkPassIcon: url("./images/dark/pass-icon.svg");
 $passIconWidth: 14px;
 $passIconHeight: 16px;
 
-.passIcon {
+.icon {
   &::before {
-    content: '';
-    width: $passIconWidth;
-    aspect-ratio: getAspectRatio($passIconWidth, $passIconHeight);
-    background-image: $lightPassIcon;
-    background-repeat: no-repeat;
+    content: $lightPassIcon;
+    //width: $passIconWidth;
+    //aspect-ratio: getAspectRatio($passIconWidth, $passIconHeight);
+    //background-image: $lightPassIcon;
+    //background-repeat: no-repeat;
     position: absolute;
     left: 18px;
     top: 50%;
     transform: translateY(-50%);
   }
-
-  body[id = 'dark'] &::before {
-    background-image: $darkPassIcon;
+// TODO Поправить тут все
+  @include dark_theme {
+    &::before {
+      content: $darkPassIcon;
+    }
   }
 }
 
-.toggleViewPassBtn {
+.button {
   position: absolute;
   border: none;
   background-color: transparent;
@@ -43,20 +45,22 @@ $passIconHeight: 16px;
     visibility: hidden;
     top: 2px;
     right: 0;
-    width: $openAndHidePassIconWidth;
-    aspect-ratio: getAspectRatio($openAndHidePassIconWidth, $openAndHidePassIconHeight);
+    //width: $openAndHidePassIconWidth;
+    //aspect-ratio: getAspectRatio($openAndHidePassIconWidth, $openAndHidePassIconHeight);
   }
   &::before {
-    background-image: $lightOpenPassIcon;
+    content: $lightOpenPassIcon;
   }
   &::after {
-    background-image: $lightHidePassIcon;
+    content: $lightHidePassIcon;
   }
-  body[id = 'dark'] &::before {
-    background-image: $darkOpenPassIcon;
-  }
-  body[id = 'dark'] &::after {
-    background-image: $darkHidePassIcon;
+  @include dark_theme {
+    &::before {
+      content: $darkOpenPassIcon;
+    }
+    &::after {
+      content: $darkHidePassIcon;
+    }
   }
 
   &.openPass::before {

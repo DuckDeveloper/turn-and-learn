@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom'
 import {getClassName} from 'helpers'
 
 import AuthInput from 'UI/Input/Auth'
-import AuthForm, {AuthFormProps} from 'UI/Form/Auth'
+import AuthForm, {AuthFormParams} from 'UI/Form/Auth'
 import AuthButton from 'UI/Button/Auth'
 
 import PassInput from 'containers/Auth/PassInput'
@@ -12,7 +12,7 @@ import PassInput from 'containers/Auth/PassInput'
 import cl from '../index.module.scss'
 
 
-interface AuthorizationFormProps extends AuthFormProps {
+interface AuthorizationFormParams extends AuthFormParams {
     isLoading: boolean
     error: string
     username: string
@@ -21,7 +21,7 @@ interface AuthorizationFormProps extends AuthFormProps {
     changePasswordHandler: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const AuthorizationForm: FC<AuthorizationFormProps> = ({
+const AuthorizationForm: FC<AuthorizationFormParams> = ({
     onSubmit,
     setError,
     setIsLoading,
@@ -32,12 +32,12 @@ const AuthorizationForm: FC<AuthorizationFormProps> = ({
     error,
     isLoading,
 }) => (
-    <div className={ cl.authFormWrapper }>
+    <div className={ cl.formWrapper }>
         <AuthForm onSubmit={ onSubmit } setError={ setError } setIsLoading={ setIsLoading }>
             <p>Hey there,</p>
             <h1>Welcome Back</h1>
             <AuthInput
-                className={ getClassName([cl.usernameInputIcon, cl.usernameInput]) }
+                className={ getClassName([cl.icon, cl.usernameInput]) }
                 placeholder="Username"
                 value={ username }
                 changeHandler={ changeUsernameHandler }
@@ -47,17 +47,24 @@ const AuthorizationForm: FC<AuthorizationFormProps> = ({
             { error && <p className={ cl.error }>{ error }</p> }
             <AuthButton
                 isLoading={ isLoading } isDisabled={ isLoading }
-                className={ getClassName([
-                    cl.authButton, {
-                        [cl.authButtonWithFormError]: Boolean(error),
-                    },
-                ]) }
+                className={
+                    getClassName([
+                        cl.button,
+                        cl.buttonDecorationLogin,
+                        {
+                            [cl.buttonWithError]: Boolean(error),
+                        },
+                    ])
+                }
             >
-                <span className={ cl.usernameButtonDecoration }/>Login
+                Login
             </AuthButton>
-            <p className={ cl.centered }>Don&#39;t have an account yet? <NavLink
-                className={ cl.link } to="/reg"
-            >Register</NavLink></p>
+            <p className={ cl.centered }>
+                Don&#39;t have an account yet?&nbsp;
+                <NavLink className={ cl.link } to="/reg">
+                    Register
+                </NavLink>
+            </p>
         </AuthForm>
     </div>
 )

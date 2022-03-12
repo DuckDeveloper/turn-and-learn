@@ -32,7 +32,7 @@ const initialState: System = {
     cardsListDisplayMode: 'pagination',
     modalIsOpen: false,
     componentInModal: null,
-    theme: 'light',
+    pageTheme: 'light',
     authToken: localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY) || '',
 }
 
@@ -58,9 +58,9 @@ export const systemReducer = (state: System = initialState, action: systemReduce
         case CHANGE_CARDS_DISPLAY_MODE:
             return {...state, cardsListDisplayMode: state.cardsListDisplayMode === 'pagination' ? 'scroll' : 'pagination'}
         case CHANGE_THEME:
-            if (action.payload === state.theme) return state
+            if (action.payload === state.pageTheme) return state
 
-            return {...state, theme: action.payload}
+            return {...state, pageTheme: action.payload}
         case PULL_AUTH_TOKEN:
             return {...state, authToken: action.payload}
         case OPEN_MODAL_WINDOW:

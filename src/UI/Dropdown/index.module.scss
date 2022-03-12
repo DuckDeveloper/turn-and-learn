@@ -1,0 +1,81 @@
+@import "src/assets/index";
+
+.dropdown {
+  position: relative;
+  font-size: rem(15px);
+  font-family: 'Roboto Regular', sans-serif;
+  color: $medium-grey;
+
+  @include dark_theme {
+    color: $white;
+  }
+
+  .toggleHideBtn {
+    display: flex;
+    align-items: center;
+    gap: rem(9px);
+    color: inherit;
+    font: inherit;
+
+    &::after {
+      content: url("./images/light/arrow.svg");
+
+      .isOpen & {
+        transform: rotate(180deg);
+      }
+
+      @include dark_theme {
+        content: url("./images/dark/arrow.svg");
+      }
+    }
+  }
+
+  .itemsListWrapper {
+    margin-top: 18px;
+    position: relative;
+  }
+
+  .itemsList {
+    position: absolute;
+    margin-top: rem(18px);
+    top: 100%;
+    left: 0;
+    width: max-content;
+    border: 1px solid $light-grey;
+    border-radius: rem(6px);
+
+    @include dark_theme {
+      border-color: $dirty-white;
+    }
+  }
+
+  .item {
+    padding: rem(15px) rem(14px);
+    background: $white;
+    @include dark_theme {
+      background: $medium-black;
+      border-color: $dirty-white;
+    }
+
+    &:first-child {
+      border-top-left-radius: rem(6px);
+      border-top-right-radius: rem(6px)
+    }
+
+    &:last-child {
+      border-bottom-left-radius: rem(6px);
+      border-bottom-right-radius: rem(6px)
+    }
+
+    &:not(:first-child) {
+      border-top: 1px solid $light-grey;
+    }
+
+    button {
+      width: 100%;
+      font-size: inherit;
+      color: inherit;
+    }
+  }
+}
+

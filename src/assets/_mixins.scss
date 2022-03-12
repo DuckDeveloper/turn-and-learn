@@ -1,0 +1,5 @@
+@mixin dark_theme {
+  body[id="dark"] & {
+    @content
+  }
+}

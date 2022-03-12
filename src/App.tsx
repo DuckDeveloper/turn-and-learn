@@ -4,15 +4,17 @@ import {BrowserRouter} from 'react-router-dom'
 import {useActions, useFetch, useTypedSelector} from 'hooks'
 import {authService} from 'API'
 
+import {userActions} from 'store/user'
+
 import GuestRoutes from 'routes/guest.routes'
 import UserRoutes from 'routes/user.routes'
 
-import {userActions} from 'store/user'
+import Header from 'containers/Header'
 
 
 const App = () => {
     const [isLoading, setIsLoading] = useState(false)
-    const {isAuthorized, theme, authToken} = useTypedSelector((state) => state.systemState)
+    const {isAuthorized, pageTheme, authToken} = useTypedSelector((state) => state.systemState)
     const {loginAndGetUserDataAction} = useActions<typeof userActions>('user')
 
     const [authorizationByAuthToken] = useFetch(async () => {
@@ -25,8 +27,10 @@ const App = () => {
 
 
     useEffect(() => {
-        document.body.id = theme
-    }, [theme])
+        if (pageTheme) {
+            document.body.id = pageTheme
+        }
+    }, [pageTheme])
 
     useEffect(() => {
         authorizationByAuthToken()
@@ -38,6 +42,8 @@ const App = () => {
 
     return (
         <BrowserRouter>
+            <Header/>
+
             { isAuthorized
               ? <UserRoutes/>
               : <GuestRoutes/>

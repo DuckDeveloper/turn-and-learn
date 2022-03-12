@@ -1,0 +1,27 @@
+@import 'src/assets/index';
+
+.container {
+  height: 100%;
+  padding: 0 rem(16px);
+  max-width: 1920px - ((290+16)*2);
+  margin: 0 auto;
+
+  & .header {
+    margin: rem(50px) 0 rem(90px) 0;
+    display: flex;
+    justify-content: space-between;
+
+    & h1 {
+      font-size: rem(27px);
+      font-family: 'Roboto Medium', sans-serif;
+      color: $dark-grey;
+    }
+  }
+
+  & .footer {
+    margin-top: rem(111px);
+    padding-bottom: rem(101px);
+    display: flex;
+    gap: rem(20px);
+  }
+}

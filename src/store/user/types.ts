@@ -1,4 +1,4 @@
-import {User, UserAvatarUrl} from 'types/user.types'
+import {User, AvatarUrl} from 'types/user.types'
 
 export enum UserReducerActionTypes {
     GET_USER_DATA = 'GET_USER_DATA',
@@ -12,6 +12,6 @@ export interface GetUserDataAction {
 
 export interface ChangeAvatarAction {
     type: UserReducerActionTypes.CHANGE_AVATAR
-    payload: UserAvatarUrl
+    payload: AvatarUrl
 }
 

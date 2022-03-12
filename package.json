@@ -17,6 +17,7 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
+		"server": "cd ../turn-and-learn-back && npm run server",
 		"gh-pages-deploy": "gh-pages -d build",
 		"eject": "react-scripts eject"
 	},
